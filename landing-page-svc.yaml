@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: application01
+    run: landing-page
+  name: landing-page-svc
+  namespace: application01
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app.kubernetes.io/instance: application01
+    run: landing-page
+  type: NodePort
+status:
+  loadBalancer: {}
